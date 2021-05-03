@@ -12,13 +12,11 @@
 
       <div class="titolo mg-left">
         <h1>Ecco i tuoi brani </h1>
-        <!-- <select id="lista" v-model="genere" >
+        <select id="lista" @change="scegli()"  v-model="autoree">
     		  <option value="">All</option>
-    		  <option v-for="genere in genereoption" :value="genere">{{genere}}</option> -->
-    		  <!-- <option value="Pop">Pop</option>
-    		  <option value="Jazz">Jazz</option>
-          <option value="Metal">Metal</option> -->
-    	  <!-- </select> -->
+    		  <option v-for="artist in artists" :value="artist">{{artist}}</option>
+
+    	  </select>
       </div>
       <!-- <button class="mg-left" @click="ordinamento" name="button"> Ordina per anno
       <i class="fas" :class="(flag) ? 'fa-arrow-down' : 'fa-arrow-up' "></i>
@@ -26,7 +24,7 @@
 
       <div class="container">
 
-        <div class="card" v-for="(disk,i) in disks"  >
+        <div class="card" v-for="(disk,i) in disks" v-if="autoree == disk.author || autoree == '' ">
         <div class="card-inner">
           <div class="card-cover"
             :style="`background-image: url('${disk.poster}');`">

@@ -3,27 +3,30 @@
     el: '#root',
     data: {
       disks: [],
-      // genereoption: [],
-      // genere:"",
+      artists: [],
+      autoree:"",
       // flag: false,
 
     },
 
     created(){
-      axios.get('http://localhost:8888/php-ajax-dischi/_partials/dati.php')
+      axios.get('http://localhost:8888/php-ajax-dischi/call.php')
           .then((response) =>{
             console.log(response);
             this.disks = response.data;
-            console.log(this.disks);
-          //   this.disks.forEach((item, i) => {
-          //     if (!this.genereoption.includes(item.genre)) {
-          //         this.genereoption.push(item.genre);
-          //     }
-          //   });
-          //
+            // console.log(this.disks);
+
+            for (var i = 0; i < response.data.length; i++) {
+              let artist = response.data[i].author;
+              if (!(this.artists.includes(artist))) {
+                this.artists.push(artist)
+              }
+            }
+            console.log(this.artists);
+
           });
     },
-    // methods: {
+    methods: {
     //   ordinamento: function () {
     //     this.flag = !this.flag;
     //     if (this.flag) {
@@ -33,6 +36,17 @@
     //       this.disks.sort((a,b) =>  b.year - a.year);
     //     }
     //   }
-    // }
+
+      scegli: function(){
+        console.log(this.autoree);
+        axios.get(`http://localhost:8888/php-ajax-dischi/search.php?autore=${this.autoree}`)
+            .then((response) =>{
+              // let result = response;
+              console.log(response.data);
+                this.disks = response.data;  
+            });
+
+      }
+    }
 
   });
