@@ -1,0 +1,151 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing:border-box;
+}
+body{
+  background-color: #ECE0DA;
+}
+
+ #lista{
+   margin-bottom: 20px;
+   border: 1px solid black;
+   position: absolute;
+   top: 64px;
+   left: 513px;
+   width: 50px;
+   color: red;
+}
+.titolo{
+  margin: 10px;
+
+  margin-bottom: 44px;
+}
+.mg-left{
+  margin-left: 76px;
+}
+.titolo h1{
+  padding-top: 19px;
+  margin-bottom: 10px;
+  font-size: 60px;
+  color: #FF1D23;
+}
+.container{
+  width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.card {
+  background-color: transparent;
+  /* width: 300px; */
+  height: 250px;
+  perspective: 1000px;
+  padding-top: 20px;
+  width: calc(100%/4 - 40px);
+  justify-content: space-between;
+  margin: 0px 20px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-cover, .card-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-cover {
+  color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-info {
+  background-color: red;
+  color: #ECE0DA;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-info .title, .years, .genre, .author{
+  font-size: 22px;
+}
+
+
+
+@media screen and ( max-width: 950px){
+  .mg-left{
+    margin-left: 61px;
+  }
+  .card{
+    width: calc(100%/3 - 40px);
+  }
+}
+
+@media screen and ( max-width: 768px){
+  .mg-left{
+    margin-left: 48px;
+  }
+  .titolo h1{
+    font-size: 45px;
+  }
+  #lista{
+    top: 51px;
+    left: 396px;
+  }
+
+  .card{
+    width: calc(100%/2 - 40px);
+  }
+}
+
+@media screen and ( max-width: 500px){
+  .mg-left{
+    margin-left: 43px;
+  }
+  .titolo h1{
+    font-size: 40px;
+  }
+
+  #lista{
+    top: 47px;
+    left: 349px;
+  }
+
+  .card{
+    width: calc(100%/1 - 40px);
+  }
+}
+
+@media screen and ( max-width: 408px){
+
+  .titolo h1{
+    font-size: 30px;
+  }
+
+  #lista{
+    top: 39px;
+    left: 264px;
+  }
+}
