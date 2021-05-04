@@ -15,7 +15,6 @@
         <select id="lista" @change="scegli()"  v-model="autoree">
     		  <option value="">All</option>
     		  <option v-for="artist in artists" :value="artist">{{artist}}</option>
-
     	  </select>
       </div>
       <!-- <button class="mg-left" @click="ordinamento" name="button"> Ordina per anno
